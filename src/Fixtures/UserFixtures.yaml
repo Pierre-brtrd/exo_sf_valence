@@ -1,0 +1,7 @@
+App\Entity\User:
+    userAdmin:
+        email: "pierre@test.com"
+        prenom: "Pierre"
+        nom: "Bertrand"
+        password: <hashPassword('Test1234')>
+        roles: ["ROLE_ADMIN"]
