@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie index
+{% endblock %}
+
+{% block body %}
+	<h1>Categorie index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Titre</th>
+				<th>Active</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for categorie in categories %}
+				<tr>
+					<td>{{ categorie.id }}</td>
+					<td>{{ categorie.titre }}</td>
+					<td>{{ categorie.active ? 'Yes' : 'No' }}</td>
+					<td>
+						<a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_categorie_new') }}">Create new</a>
+{% endblock %}
