@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Edit produit
+{% endblock %}
+
+{% block body %}
+	<h1>Edition produit</h1>
+	{% include "Backend/Produit/_form.html.twig" with { button_label: 'Modifier'} %}
+{% endblock %}

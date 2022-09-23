@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Créer un produit
+{% endblock %}
+
+{% block body %}
+	<h1>Création d'un produit</h1>
+	{% include "Backend/Produit/_form.html.twig" with { button_label: 'Créer'} %}
+{% endblock %}

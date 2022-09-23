@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Admin des produits
+{% endblock %}
+
+{% block body %}
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>Nom</th>
+				<th>Prix</th>
+				<th>Categorie</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for produit in produits %}
+				<tr>
+					<td>{{ produit.id }}</td>
+					<td>{{ produit.nom }}</td>
+					<td>{{ produit.prix|format_currency('EUR', locale='fr') }}</td>
+					<td>{{ produit.categorie.titre }}</td>
+					<td>
+						<form action="{{ path('admin.produit.delete', {id: produit.id}) }}" method="POST" onsubmit="return confirm('Sûr frérot ?')">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
+							<button type="submit">Supprimer</button>
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
